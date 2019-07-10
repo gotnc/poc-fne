@@ -12,7 +12,8 @@ describe('create pseudo properties from an interxmarc notice', () => {
       const propertiesList = Object.keys(properties)
       propertiesList.should.be.an.Array()
       propertiesList.includes(propertyId).should.be.true()
-      properties[propertyId].id.should.equal(propertyId)
+      console.log(properties[propertyId])
+      properties[propertyId].pseudoId.should.equal(propertyId)
       properties[propertyId].aliases.fr.should.equal(propertyId)
       properties[propertyId].datatype.should.equal('string')
       done()
@@ -44,7 +45,7 @@ describe('create a pseudo item from an interxmarc notice', () => {
       const itemId = '0  b.Fleming.Robert.1921-1976'
       const item = parseItems(robertFlemingNotice)
       item.should.be.an.Object()
-      item.id.should.equal(itemId)
+      item.pseudoId.should.equal(itemId)
       item.aliases.fr.should.equal(itemId)
       done()
     })
